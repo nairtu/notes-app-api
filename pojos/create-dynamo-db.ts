@@ -6,7 +6,7 @@ export interface CreateDocumentItem {
     createdAt: number
 }
 
-export interface CreateDocumentRequest {
+export interface ContentAttachment {
     content: string,
     attachment: string
 }

@@ -3,7 +3,7 @@ import {Context, APIGatewayEvent, Callback} from "aws-lambda"
 import * as _ from "lodash";
 import {dynamoDB} from "../libs/dynamo-db-service";
 import {success, failure} from "../libs/response-service";
-import {CreateDocumentItem, CreateDocumentRequest} from "../pojos/create-dynamo-db";
+import {CreateDocumentItem, ContentAttachment} from "../pojos/create-dynamo-db";
 import {DocumentClient} from "aws-sdk/lib/dynamodb/document_client";
 
 exports.handler = async function (event: APIGatewayEvent, content: Context, callback: Callback) {
@@ -12,7 +12,7 @@ exports.handler = async function (event: APIGatewayEvent, content: Context, call
         const errorMessage: Error = {name: "Note create handler", message: "Event body is empty"};
         callback(errorMessage, failure(errorMessage))
     } else {
-        const data: CreateDocumentRequest = JSON.parse(eventBody);
+        const data: ContentAttachment = JSON.parse(eventBody);
         const putEntryItem: CreateDocumentItem = {
             userId: event.requestContext.identity.cognitoIdentityId,
             noteId: uuid.v1(),
