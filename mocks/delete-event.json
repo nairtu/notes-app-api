@@ -1,0 +1,10 @@
+{
+  "pathParameters": {
+    "id": "1d1c05a0-4cfe-11e8-9780-4125342d91f2"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "nairtu"
+    }
+  }
+}
